@@ -8,7 +8,7 @@ public class Representant {
 	private String adresse;
 	private float salaireFixe;
 	private ZoneGeographique secteur;
-	private float[] CAMensuel = new float[11];
+	private float[] CAMensuel = new float[12];
 
 	public Representant(int numero, String nom, String prenom, ZoneGeographique secteur) {
 		this.numero = numero;

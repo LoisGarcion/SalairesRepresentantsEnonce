@@ -87,6 +87,19 @@ public class TestRepresentant {
 		//on enregistre un CA avec un mois non compris entre 0 et 11, la fonction devrait donc lever une IllegalArgumentException
 		assertThrows(IllegalArgumentException.class, () -> r.enregistrerCA(12,50f));
 	}
-	
-	
+
+	@Test
+	public void testSalaireMensuelPourcentageNegatif(){
+		assertThrows(IllegalArgumentException.class, () -> r.salaireMensuel(11,-50f));
+	}
+
+	@Test
+	public void testSalaireMensuelMoisImpossible(){
+		assertThrows(IllegalArgumentException.class, () -> r.salaireMensuel(-4,50f));
+	}
+
+	@Test
+	public void testSalaireMensuelMoisNonEnregistre(){
+		assertEquals(r.salaireMensuel(4,50f),r.getSalaireFixe()+r.getSecteur().getIndemniteRepas());
+	}
 }
