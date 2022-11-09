@@ -75,6 +75,9 @@ public class Representant {
 		if (mois < 0 || mois > 11) {
 			throw new IllegalArgumentException("Le mois doit être compris entre 0 et 11");
 		}
+		if(pourcentage < 0){
+			throw new IllegalArgumentException("Le pourcentage doit être supérieur ou égal à 0");
+		}
 		return salaireFixe + secteur.getIndemniteRepas() + CAMensuel[mois] * pourcentage;
 	}
 

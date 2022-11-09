@@ -1,9 +1,9 @@
 package representation;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.fail;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TestRepresentant {
 	// Quelques constantes
@@ -80,7 +80,12 @@ public class TestRepresentant {
 		} catch (IllegalArgumentException e) {
 			// Si on arrive ici, c'est normal, c'est le comportement attendu
 		}
+	}
 
+	@Test
+	public void testEnregistrerCAMoisImpossible(){
+		//on enregistre un CA avec un mois non compris entre 0 et 11, la fonction devrait donc lever une IllegalArgumentException
+		assertThrows(IllegalArgumentException.class, () -> r.enregistrerCA(12,50f));
 	}
 	
 	
